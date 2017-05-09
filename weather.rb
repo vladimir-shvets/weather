@@ -1,6 +1,9 @@
 require 'net/http'
+require 'json'
+
 
 #All longtitude and latitude data sourced by http://www.latlong.net
+
 
 #Hamburg <3
 def weather_hamburg
@@ -48,12 +51,11 @@ def weather_barcelona
   res_barca = Net::HTTP.start(url_barca.host, url_barca.port) {|http|
     http.request(req_barca)}
   puts res_barca.body
+  return res_barca
 end
 
-
-#OUTPUT
 puts weather_hamburg
-puts weather_london
 puts weather_dnipro
-puts weather_washington
+puts weather_london
 puts weather_barcelona
+puts weather_washington
